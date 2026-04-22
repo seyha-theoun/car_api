@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: car-api
+    runtime: java
+    plan: free
+    buildCommand: "./gradlew clean build -x test"
+    startCommand: "java -jar build/libs/car-0.0.1-SNAPSHOT.jar"
+    healthCheckPath: /swagger-ui.html
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: DB_HOST
+        fromDatabase:
+          name: car-postgres
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: car-postgres
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: car-postgres
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: car-postgres
+          property: user
+      - key: DB_PASS
+        fromDatabase:
+          name: car-postgres
+          property: password
+      - key: APP_JWT_SECRET
+        generateValue: true
+      - key: APP_JWT_EXPIRATION_MS
+        value: "86400000"
+      - key: APP_CORS_ALLOWED_ORIGIN_PATTERNS
+        value: "https://*.onrender.com"
+
+databases:
+  - name: car-postgres
+    plan: free
+
