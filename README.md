@@ -91,6 +91,7 @@ mvn test
 
 ## Deploy on Render
 This repo includes a Render Blueprint file: `render.yaml`.
+The web service is configured with `env: docker`.
 
 1. Push this repository to GitHub.
 2. In Render, choose **New +** -> **Blueprint**.
@@ -105,4 +106,10 @@ After deploy, set frontend origin(s) in `APP_CORS_ALLOWED_ORIGIN_PATTERNS` (comm
 Useful checks after deployment:
 - `https://<your-api>.onrender.com/swagger-ui.html`
 - `https://<your-api>.onrender.com/v3/api-docs`
+
+Optional local Docker smoke test:
+```bash
+docker build -t car-api .
+docker run -p 8282:8080 car-api
+```
 
