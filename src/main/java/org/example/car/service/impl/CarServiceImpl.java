@@ -66,6 +66,14 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    public List<CarResponse> getAllCars() {
+        return carRepository.findAllByDeletedFalseOrderByCreatedAtDesc()
+                .stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
+    @Override
     public CarResponse getCarById(Long id) {
         Car car = carRepository.findByIdAndDeletedFalse(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Car not found"));

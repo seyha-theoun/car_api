@@ -68,6 +68,7 @@ mvn test
 - `POST /api/auth/login`
 - `POST /api/cars` (SELLER)
 - `GET /api/cars`
+- `GET /api/cars/all` (simple list without pagination)
 - `GET /api/cars/{id}`
 - `PUT /api/cars/{id}` (owner)
 - `DELETE /api/cars/{id}` (owner)

@@ -6,11 +6,14 @@ import org.example.car.dto.car.CarUpdateRequest;
 import org.springframework.data.domain.Page;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public interface CarService {
     CarResponse createCar(CarCreateRequest request, String currentUserEmail);
 
     Page<CarResponse> getCars(int page, int size);
+
+    List<CarResponse> getAllCars();
 
     CarResponse getCarById(Long id);
 

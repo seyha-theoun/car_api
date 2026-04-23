@@ -13,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/cars")
@@ -33,6 +34,11 @@ public class CarController {
             @RequestParam(defaultValue = "10") int size
     ) {
         return ResponseEntity.ok(carService.getCars(page, size));
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<CarResponse>> getAllCars() {
+        return ResponseEntity.ok(carService.getAllCars());
     }
 
     @GetMapping("/{id}")
