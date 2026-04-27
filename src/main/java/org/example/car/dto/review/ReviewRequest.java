@@ -13,7 +13,7 @@ public class ReviewRequest {
 
     @NotNull
     @Min(1)
-    @Max(10)
+    @Max(5)
     private Integer rating;
     private String comment;
 }

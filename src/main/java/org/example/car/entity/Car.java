@@ -28,7 +28,7 @@ public class Car {
     @Column(nullable = false)
     private String model;
 
-    @Column(nullable = false)
+    @Column(name = "car_year", nullable = false)
     private Integer year;
 
     @Column(nullable = false, precision = 12, scale = 2)
