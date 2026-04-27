@@ -104,9 +104,7 @@ The web service is configured with `env: docker`.
 After deploy, set frontend origin(s) in `APP_CORS_ALLOWED_ORIGIN_PATTERNS` (comma-separated), for example:
 - `https://your-frontend.onrender.com,http://localhost:5500`
 
-Useful checks after deployment:
-- `https://<your-api>.onrender.com/swagger-ui.html`
-- `https://<your-api>.onrender.com/v3/api-docs`
+
 
 Optional local Docker smoke test:
 ```bash
