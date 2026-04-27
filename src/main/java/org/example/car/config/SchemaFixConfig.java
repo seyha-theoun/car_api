@@ -21,6 +21,9 @@ public class SchemaFixConfig {
             runSafe(jdbcTemplate, "ALTER TABLE IF EXISTS users ALTER COLUMN password TYPE VARCHAR(255)");
             runSafe(jdbcTemplate, "ALTER TABLE IF EXISTS users ALTER COLUMN phone TYPE VARCHAR(30)");
             runSafe(jdbcTemplate, "ALTER TABLE IF EXISTS users ALTER COLUMN profile_image TYPE TEXT");
+
+            // Rename legacy cars.year column to cars.car_year for reserved-keyword safety.
+            runSafe(jdbcTemplate, "ALTER TABLE IF EXISTS cars RENAME COLUMN year TO car_year");
         };
     }
 
